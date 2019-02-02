@@ -9,6 +9,12 @@ To update plugins, from inside vim enter, or fo help
 :PluginInstall
 :h vundle
 ```
+
+### Colous
+[Grubox](https://github.com/morhetz/gruvbox) currently selected
+[solarized](https://github.com/altercation/vim-colors-solarized)
+[zenburn](https://github.com/jnurmine/Zenburn)
+
 ### Syntastic & flake8
 
 [syntastic](https://github.com/vim-syntastic/syntastic), does the auto checking on save and displays in the magin
@@ -16,3 +22,6 @@ To update plugins, from inside vim enter, or fo help
 
 ### SimpylFold
 [SimpylFold](https://github.com/tmhedberg/SimpylFold) just improves the whitespace folding for python, no config required
+
+### Surround
+[Surround](https://github.com/tpope/vim-surround)
