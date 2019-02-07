@@ -2,7 +2,7 @@
 repository for my vimrc file
 
 ## Transferring
-use the following command to tar up the vimrc and all the plaugins
+use the following command to tar up the vimrc and all the plugins
 ```bash
 tar cvzf vim_config.tar.gz .vimrc .vim
 ```
