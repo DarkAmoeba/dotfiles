@@ -1,6 +1,16 @@
 # vim-config
 repository for my vimrc file
 
+## Transferring
+use the following command to tar up the vimrc and all the plaugins
+```bash
+tar cvzf vim_config.tar.gz .vimrc .vim
+```
+To unpack
+```bash
+tar -xvzf vim_config.tar.gz
+```
+
 ## Plugins
 ### Vundle
 Vundle is the vim package manager which handles the plugin installation
