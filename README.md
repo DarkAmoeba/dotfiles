@@ -58,4 +58,4 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 
 ### Airline & fugitive
 * [airline](https://github.com/vim-airline/vim-airline)
-* [fugitive](https://github.com/tpope/vim-fugitive) (tutorial) [http://vimcasts.org/blog/2011/05/the-fugitive-series/]
+* [fugitive](https://github.com/tpope/vim-fugitive) [vim casts tutorial](http://vimcasts.org/blog/2011/05/the-fugitive-series/)
