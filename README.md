@@ -33,8 +33,8 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 :colorscheme gruvbox  # to activate a different one
 ```
 
-### Syntastic, flake8 & autopep8
-
+### Trailing whitespace, Syntastic, flake8 & autopep8
+* remove trailing whitespace `:%s/\s\+$//ge` mapped to `F2`
 * [syntastic](https://github.com/vim-syntastic/syntastic), does the auto checking on save and displays in the magin
 * [flake8](https://github.com/nvie/vim-flake8) can be run with `F7`, `search +7` on chromebook
 * [autopep8](https://github.com/tell-k/vim-autopep8) can be run with `F8`, `search +8` on chromebook
