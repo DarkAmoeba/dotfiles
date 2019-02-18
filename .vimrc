@@ -38,6 +38,7 @@ set background=dark
 "colorscheme solarized
 
 colorscheme gruvbox
+set t_ut= " disable Background Color Erase
 
 call togglebg#map("<F5>")
 let g:autopep8_max_line_length=119
@@ -87,5 +88,14 @@ autocmd FileType python set foldmethod=indent
 set nofoldenable    " disable folding
 
 "use space to open folds
-nnoremap <space> za 
+"nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
+
+"Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+map <F2> :call TrimWhiteSpace()<CR>
+map! <F2> :call TrimWhiteSpace()<CR>
