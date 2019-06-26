@@ -51,6 +51,13 @@ set number
 "set laststatus=2
 set noshowmode " remove the -- INSERT -- message
 
+" Configure Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle']
+let g:syntastic_python_pycodestyle_post_args="--max-line-length=120"
+
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
