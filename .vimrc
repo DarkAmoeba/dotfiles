@@ -40,6 +40,35 @@ set background=dark
 colorscheme gruvbox
 set t_ut= " disable Background Color Erase
 
+"Create custom mappings:
+" F1   None
+" F2   Remove trainging whitespace
+" F3   Toggle wells
+" F4   NYI  toggle paste mode
+" F5   Toggle background colour
+
+"Removes trailing spaces
+function! TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+nnoremap <F2> :call TrimWhiteSpace()<CR>
+
+nnoremap <F3> :call ToggleWells() <CR>
+let g:wells_on = 1
+function! ToggleWells()
+    if g:wells_on
+        set nonumber
+        SyntasticReset
+        let g:wells_on = 0
+    else
+        set number
+        SyntasticCheck
+        let g:wells_on = 1
+    endif
+endfunction
+
 call togglebg#map("<F5>")
 let g:autopep8_max_line_length=119
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
@@ -47,11 +76,15 @@ autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 "turn on numbering
 set number
 
+"turn off beep
+set belloff=all
+
 " set status line configuration for lightline
 "set laststatus=2
 set noshowmode " remove the -- INSERT -- message
 
 " Configure Syntastic
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
@@ -94,15 +127,4 @@ autocmd FileType python set autoindent
 autocmd FileType python set foldmethod=indent
 set nofoldenable    " disable folding
 
-"use space to open folds
-"nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
-
-"Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
-
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
