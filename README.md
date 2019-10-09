@@ -7,7 +7,8 @@ Vundle is the vim package manager which handles the plugin installation
 [Vundle](https://github.com/VundleVim/Vundle.vim)
 ```bash
 :PluginInstall # to install
-:PluginUodate  # to update
+:PluginUpdate  # to update
+:PluginClean   # to remove old plugins
 :h vundle      # for help
 ```
 
@@ -36,7 +37,6 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 ### Trailing whitespace, Syntastic, flake8 & autopep8
 * remove trailing whitespace `:%s/\s\+$//ge` mapped to `F2`
 * [syntastic](https://github.com/vim-syntastic/syntastic), does the auto checking on save and displays in the magin
-* [flake8](https://github.com/nvie/vim-flake8) can be run with `F7`, `search +7` on chromebook
 * [autopep8](https://github.com/tell-k/vim-autopep8) can be run with `F8`, `search +8` on chromebook
 ```bash
 :h autopep8 # for help
@@ -44,8 +44,15 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 ```
 
 ### SimpylFold
+*causing errors at work removed*
 [SimpylFold](https://github.com/tmhedberg/SimpylFold) just improves the whitespace folding for python, no config required
 
 ### Airline & fugitive
 * [airline](https://github.com/vim-airline/vim-airline)
 * [fugitive](https://github.com/tpope/vim-fugitive) (tutorial) [http://vimcasts.org/blog/2011/05/the-fugitive-series/]
+
+### Taking to work
+from the ~ dircetory, needs to be from here, run 
+`tar -zcvf vim-config.tar.gz .vimrc .vim`
+extarct with
+`tar -xvf vim-config.tar.gz`

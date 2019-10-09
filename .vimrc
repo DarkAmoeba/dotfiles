@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 "python sytax checker
 Plugin 'vim-syntastic/syntastic'
 "Plugin 'w0rp/ale' " reuires vim 8, only 7 at work
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 Plugin 'tell-k/vim-autopep8'
 
 "Colors!!!
@@ -18,11 +18,11 @@ Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized' " The colorscheme for work hence included
 
 "prevent excessive default folding with this plugin
-Plugin 'tmhedberg/SimpylFold'
+"Plugin 'tmhedberg/SimpylFold' " Causing errors, removed
 
 "usage
 Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline' " currently causing issues on vim 7.2 at work
 Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline theme can be used
 Plugin 'tpope/vim-fugitive' " provides the git integration on the powerline
 
@@ -35,17 +35,20 @@ let python_highlight_all=1
 syntax enable
 set background=dark
 "let g:solarized_termcolors=256
-"colorscheme solarized
-
 colorscheme gruvbox
-set t_ut= " disable Background Color Erase
+set t_ut= "to disable Background Color Erase
+
+" Search highlighting options
+set nohlsearch
+set incsearch
 
 "Create custom mappings:
 " F1   None
 " F2   Remove trainging whitespace
 " F3   Toggle wells
-" F4   NYI  toggle paste mode
+" F4   toggle paste mode
 " F5   Toggle background colour
+" F8   Autopep8
 
 "Removes trailing spaces
 function! TrimWhiteSpace()
@@ -69,8 +72,11 @@ function! ToggleWells()
     endif
 endfunction
 
+nnoremap <F4> :set paste!<CR>
+
 call togglebg#map("<F5>")
-let g:autopep8_max_line_length=119
+let g:autopep8_max_line_length=160
+let g:autopep8_disable_show_diff=1
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
 "turn on numbering
@@ -84,12 +90,13 @@ set belloff=all
 set noshowmode " remove the -- INSERT -- message
 
 " Configure Syntastic
-let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle']
-let g:syntastic_python_pycodestyle_post_args="--max-line-length=120"
+let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_flake8_post_args="--max-line-length=140"
+"let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle']
+"let g:syntastic_python_pycodestyle_post_args="--max-line-length=140"
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
