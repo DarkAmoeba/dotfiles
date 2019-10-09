@@ -45,6 +45,7 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 
 ### SimpylFold
 *causing errors at work removed*
+
 [SimpylFold](https://github.com/tmhedberg/SimpylFold) just improves the whitespace folding for python, no config required
 
 ### Airline & fugitive
@@ -53,6 +54,9 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 
 ### Taking to work
 from the ~ dircetory, needs to be from here, run 
+
 `tar -zcvf vim-config.tar.gz .vimrc .vim`
+
 extarct with
+
 `tar -xvf vim-config.tar.gz`
