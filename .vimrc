@@ -82,8 +82,8 @@ autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 "turn on numbering
 set number
 
-"turn off beep
-set belloff=all
+"turn off beep on chromebook only
+"set belloff=all
 
 " set status line configuration for lightline
 "set laststatus=2
@@ -112,11 +112,9 @@ highlight BadWhitespace ctermbg=red guibg=red
 
 " Display tabs at the beginning of a line in Python mode as bad.
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+
 " Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
 
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
