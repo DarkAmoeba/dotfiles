@@ -38,6 +38,14 @@ set background=dark
 colorscheme gruvbox
 set t_ut= "to disable Background Color Erase
 
+" Unbind some useless/annoying default key bindings.
+nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+
+" This setting makes search case-insensitive when all characters in the string
+" being searched are lowercase. However, the search becomes case-sensitive if
+" it contains any capital letters. This makes searching more convenient.
+set ignorecase
+set smartcase
 " Search highlighting options
 set nohlsearch
 set incsearch
@@ -79,11 +87,19 @@ let g:autopep8_max_line_length=160
 let g:autopep8_disable_show_diff=1
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
+" This enables relative line numbering mode. With both number and
+" relativenumber enabled, the current line shows the true line number, while
+" all other lines (above and below) are numbered relative to the current line.
+" This is useful because you can tell, at a glance, what count is needed to
+" jump up or down to a particular line, by {count}k to go up or {count}j to go
+" down.
+"set relativenumber
+
 "turn on numbering
 set number
 
-"turn off beep on chromebook only
-"set belloff=all
+" Disable audible bell because it's annoying.
+set noerrorbells visualbell t_vb=
 
 " set status line configuration for lightline
 "set laststatus=2
@@ -94,7 +110,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_python_checkers = ['flake8']
-"let g:syntastic_python_flake8_post_args="--max-line-length=140"
+let g:syntastic_python_flake8_post_args="--max-line-length=140"
 "let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle']
 "let g:syntastic_python_pycodestyle_post_args="--max-line-length=140"
 

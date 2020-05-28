@@ -1,7 +1,8 @@
-# vim-config
-repository for my vimrc file
+# DotFiles
+Repository for my configuration files
+Tutorial on dotfile configuration [here](https://missing.csail.mit.edu/2020/command-line/).
 
-## Plugins
+## vimrc
 ### Vundle
 Vundle is the vim package manager which handles the plugin installation
 [Vundle](https://github.com/VundleVim/Vundle.vim)
@@ -60,3 +61,13 @@ from the ~ dircetory, needs to be from here, run
 extarct with
 
 `tar -xvf vim-config.tar.gz`
+
+## tumx.conf
+
+`tumx.conf` currently just a copy of [anishathalye](https://github.com/anishathalye/dotfiles/blob/master/tmux.conf)
+
+## screenrc
+
+## flake8
+
+## bashrc
