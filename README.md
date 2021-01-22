@@ -2,6 +2,17 @@
 Repository for my configuration files
 Tutorial on dotfile configuration [here](https://missing.csail.mit.edu/2020/command-line/).
 
+## setup
+Git clone the dot files in home area and create links to the corresponding dotfiles.
+```
+git clone <this repo>
+ln -s ~/dotfiles/.vimrc .
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+Launch vim and then type `:PluginInstall`. Full instuctions for Vundle are on the [github page](https://github.com/VundleVim/Vundle.vim#quick-start).
+
 ## vimrc
 ### Vundle
 Vundle is the vim package manager which handles the plugin installation

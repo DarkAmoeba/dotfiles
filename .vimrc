@@ -22,6 +22,7 @@ Plugin 'altercation/vim-colors-solarized' " The colorscheme for work hence inclu
 
 "usage
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline' " currently causing issues on vim 7.2 at work
 Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline theme can be used
 Plugin 'tpope/vim-fugitive' " provides the git integration on the powerline
@@ -44,7 +45,7 @@ nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 " This setting makes search case-insensitive when all characters in the string
 " being searched are lowercase. However, the search becomes case-sensitive if
 " it contains any capital letters. This makes searching more convenient.
-set ignorecase
+"set ignorecase
 set smartcase
 " Search highlighting options
 set nohlsearch
@@ -56,13 +57,25 @@ set incsearch
 " F3   Toggle wells
 " F4   toggle paste mode
 " F5   Toggle background colour
+" F6   Insert python if main block
 " F8   Autopep8
+
+" Map Ctrl-Backspace to delete the previous word in insert mode.
+imap <C-BS> <C-W>
 
 "Removes trailing spaces
 function! TrimWhiteSpace()
   %s/\s*$//
   ''
 endfunction
+
+function! IfMain()
+  let s:line=line(".")
+  call append(s:line,"if __name__ == \"__main__\":")
+  unlet s:line
+endfunction
+
+nnoremap <F6> :call IfMain()<CR>
 
 nnoremap <F2> :call TrimWhiteSpace()<CR>
 
@@ -81,6 +94,7 @@ function! ToggleWells()
 endfunction
 
 nnoremap <F4> :set paste!<CR>
+inoremap <F4> <esc>:set paste!<CR>i
 
 call togglebg#map("<F5>")
 let g:autopep8_max_line_length=160
@@ -110,7 +124,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_post_args="--max-line-length=140"
+let g:syntastic_python_flake8_post_args="--max-line-length=300"
 "let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle']
 "let g:syntastic_python_pycodestyle_post_args="--max-line-length=140"
 
