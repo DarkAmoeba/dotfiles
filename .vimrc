@@ -27,6 +27,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline' " currently causing issues on vim 7.2 at work
 Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline theme can be used
 Plugin 'tpope/vim-fugitive' " provides the git integration on the powerline
+Plugin 'kien/ctrlp.vim'
 
 "Text Objects
 Plugin 'kana/vim-textobj-user'
