@@ -22,10 +22,17 @@ Plugin 'altercation/vim-colors-solarized' " The colorscheme for work hence inclu
 
 "usage
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline' " currently causing issues on vim 7.2 at work
 Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline theme can be used
 Plugin 'tpope/vim-fugitive' " provides the git integration on the powerline
+
+"Text Objects
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-indent'
+Plugin 'kana/vim-textobj-line'
+Plugin 'bps/vim-textobj-python'
 
 call vundle#end()
 filetype plugin indent on    " required
@@ -46,10 +53,12 @@ nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 " being searched are lowercase. However, the search becomes case-sensitive if
 " it contains any capital letters. This makes searching more convenient.
 "set ignorecase
-set smartcase
+"set smartcase
+set nowrap
 " Search highlighting options
-set nohlsearch
+set hlsearch
 set incsearch
+set relativenumber
 
 "Create custom mappings:
 " F1   None

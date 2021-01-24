@@ -37,6 +37,17 @@ There is a more indepth [tutorial](http://www.futurile.net/2016/03/19/vim-surrou
 
 [Surround](https://github.com/tpope/vim-surround)
 
+### Commentary
+
+```bash
+gc<motion> # toggle comments 
+gcl # togg;e comments on line
+gcap # toogle coments on around paragraph
+gcG # comment to end of file
+```
+
+[Commentary](https://github.com/tpope/vim-commentary)
+
 ### Colourscheme
 `F5`, `search +5` on chromebook to toggle between light and dark modes
 * [Grubox](https://github.com/morhetz/gruvbox) currently selected
