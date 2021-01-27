@@ -1,0 +1,24 @@
+# VIM Reference
+
+## Navigating Help
+
+| Ctrl-] | follow link |
+| Ctrl-t | back |
+
+## Searching
+| < > | word boundary | :%s/<word> finds word but not sword |
+
+## Mappings
+
+| :map | make a custom mapping | :map tt :w <bar> :!pytest %<cr> |
+| :unmap | un map | :unmap tt |
+| :imap | insert mode mapping | :imap rkni Robert Knight |
+| :iunmap | un imap | :iunmap rkni |
+
+## Macros
+
+| q<reg> | record a macro | qaI# <esc>jq |
+| @<reg> | play macro | @a |
+| @@ | replay last macro |
+| <repeat>@<reg> | run macro mulitple times | 22@a |
+|:'<,'>nomal @<reg> | run macro in parrallel over visual block |
