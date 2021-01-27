@@ -1,16 +1,21 @@
 # VIM Reference
 
 ## Navigating Help
+
+| cmd | explanation |
 |---|---|
 | Ctrl-] | follow link |
 | Ctrl-t | back |
 
 ## Searching
+
+| cmd | explanation | example |
 |---|---|---|
 | < > | word boundary | :%s/<word> finds word but not sword |
 
 ## Mappings
 
+| cmd | explanation | example |
 |---|---|---|
 | :map | make a custom mapping | :map tt :w <bar> :!pytest %<cr> |
 | :unmap | un map | :unmap tt |
