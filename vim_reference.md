@@ -1,15 +1,17 @@
 # VIM Reference
 
 ## Navigating Help
-
+|---|---|
 | Ctrl-] | follow link |
 | Ctrl-t | back |
 
 ## Searching
+|---|---|---|
 | < > | word boundary | :%s/<word> finds word but not sword |
 
 ## Mappings
 
+|---|---|---|
 | :map | make a custom mapping | :map tt :w <bar> :!pytest %<cr> |
 | :unmap | un map | :unmap tt |
 | :imap | insert mode mapping | :imap rkni Robert Knight |
@@ -17,6 +19,8 @@
 
 ## Macros
 
+| cmd | explanation | example |
+|---|---|---|
 | q<reg> | record a macro | qaI# <esc>jq |
 | @<reg> | play macro | @a |
 | @@ | replay last macro |
