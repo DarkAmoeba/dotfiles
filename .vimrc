@@ -28,6 +28,8 @@ Plugin 'vim-airline/vim-airline' " currently causing issues on vim 7.2 at work
 Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline theme can be used
 Plugin 'tpope/vim-fugitive' " provides the git integration on the powerline
 Plugin 'kien/ctrlp.vim'
+Plugin 'mbbill/undotree'
+Plugin 'frazrepo/vim-rainbow'
 
 "Text Objects
 Plugin 'kana/vim-textobj-user'
@@ -61,13 +63,22 @@ set hlsearch
 set incsearch
 set relativenumber
 
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+
+set spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
 "Create custom mappings:
 " F1   None
 " F2   Remove trainging whitespace
 " F3   Toggle wells
 " F4   toggle paste mode
-" F5   Toggle background colour
+" F5   Toggle UndoTree
 " F6   Insert python if main block
+" F7   Toggle background colour
 " F8   Autopep8
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
@@ -93,11 +104,13 @@ nnoremap <F3> :call ToggleWells() <CR>
 let g:wells_on = 1
 function! ToggleWells()
     if g:wells_on
+	set norelativenumber
         set nonumber
         SyntasticReset
         let g:wells_on = 0
     else
         set number
+	set relativenumber
         SyntasticCheck
         let g:wells_on = 1
     endif
@@ -105,8 +118,9 @@ endfunction
 
 nnoremap <F4> :set paste!<CR>
 inoremap <F4> <esc>:set paste!<CR>i
+nnoremap <F5> :UndotreeToggle<CR>
 
-call togglebg#map("<F5>")
+call togglebg#map("<F7>")
 let g:autopep8_max_line_length=160
 let g:autopep8_disable_show_diff=1
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
@@ -137,6 +151,22 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_post_args="--max-line-length=300"
 "let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle']
 "let g:syntastic_python_pycodestyle_post_args="--max-line-length=140"
+
+" Configure Vim-rainbow
+let g:rainbow_active = 1
+let g:rainbow_ctermfgs = ['red', 'lightblue', 'yellow', 'lightgreen', 'magenta']
+
+" Configure Undotree
+
+
+
+" Ignore some folders and files for CtrlP indexing
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|tmp$',
+  \ 'file': '\v\.(pyc|ipynb|gz)$'
+  \ }
+"
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
