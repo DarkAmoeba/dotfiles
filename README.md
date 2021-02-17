@@ -9,6 +9,9 @@ git clone <this repo>
 ln -s ~/dotfiles/.vimrc .
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir ~/.vim/undodir
+mkdir ~/.vim/spell
+touch ~/.vim/spell/en.utf-8.add
 ```
 
 Launch vim and then type `:PluginInstall`. Full instuctions for Vundle are on the [github page](https://github.com/VundleVim/Vundle.vim#quick-start).
