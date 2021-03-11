@@ -101,12 +101,6 @@ autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 imap <C-BS> <C-W> " Map Ctrl-Backspace to delete the previous word in insert mode.
 
-" Move 1 more lines up or down in normal and visual selection modes.
-nnoremap K :m .-2<CR>==
-nnoremap J :m .+1<CR>==
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap J :m '>+1<CR>gv=gv
-
 " Configure Autopep8
 let g:autopep8_max_line_length=160
 let g:autopep8_disable_show_diff=1

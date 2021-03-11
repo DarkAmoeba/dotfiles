@@ -16,7 +16,7 @@ touch ~/.vim/spell/en.utf-8.add
 
 Launch vim and then type `:PluginInstall`. Full instuctions for Vundle are on the [github page](https://github.com/VundleVim/Vundle.vim#quick-start).
 
-## vimrc
+## VIM Plugins
 ### Vundle
 Vundle is the vim package manager which handles the plugin installation
 [Vundle](https://github.com/VundleVim/Vundle.vim)
@@ -78,7 +78,7 @@ gcG # comment to end of file
 * [airline](https://github.com/vim-airline/vim-airline)
 * [fugitive](https://github.com/tpope/vim-fugitive) (tutorial) [http://vimcasts.org/blog/2011/05/the-fugitive-series/]
 
-### Taking to work
+## Taking to work
 from the ~ dircetory, needs to be from here, run 
 
 `tar -zcvf vim-config.tar.gz .vimrc .vim`
@@ -94,5 +94,3 @@ extarct with
 ## screenrc
 
 ## flake8
-
-## bashrc
