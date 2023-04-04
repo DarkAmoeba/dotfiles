@@ -95,6 +95,11 @@ nnoremap <F4> :set paste!<CR>
 inoremap <F4> <esc>:set paste!<CR>i
 nnoremap <F5> :UndotreeToggle<CR>
 nnoremap <F6> :call IfMain()<CR>
+map <Esc>OP <F1>
+map <Esc>OQ <F2>
+map <Esc>OR <F3>
+map <Esc>OS <F4>
+
 call togglebg#map("<F7>")
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
