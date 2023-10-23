@@ -1,0 +1,39 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific aliases and functions
+export PATH="$HOME/anaconda/bin:/usr/local/anaconda/bin:$PATH:."
+#export PATH=/usr/local/anaconda/bin:$PATH:.
+#export LD_LIBRARY_PATH=/usr/local/unixODBC/lib
+
+# Create files with group write
+umask 0002
+
+PS1="\e[0;36m\u@\h\e[m:\w> "
+
+#alias lsshr='ls --ignore=aps* --ignore=*.pyc --ignore=550q* --ignore=flosys* --ignore=itec*'
+#alias view='vim -R'
+#stty -ixon
+
+export SPARK_HOME=/opt/pkg/spark
+export PATH=$SPARK_HOME/bin:$PATH
+export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH
+
+function pretty_csv {
+    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+}
+function pretty_tsv {
+    perl -pe 's/((?<=\t)|(?<=^))\t/ \t/g;' "$@" | column -t -s $'\t' | less  -F -S -X -K
+}
+
+alias gs='git status'
+alias gr='python -m tools.git_refresh'
+alias gb='git branch'
+alias th='cd ~/toast'
+
+# Unset the prompt command to stop it overwriting the screen tab name
+unset PROMPT_COMMAND
