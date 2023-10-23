@@ -93,4 +93,27 @@ extarct with
 
 ## screenrc
 
+Use `man screen` and look for DEFAULT KEY BINDINGS for a full list of commands, here are a selection of the most useful ones:
+
+```
+       C-a 0       (select 0)
+        ...           ...
+       C-a 9       (select 9)
+
+       C-a C-a     (other)       Toggle  to the window displayed previously.  Note that this binding defaults to the command character typed twice, unless
+                                 overridden.  For instance, if you use the option "-e]x", this command becomes "]]".
+
+       C-a c
+       C-a C-c     (screen)      Create a new window with a shell and switch to that window.
+
+       C-a d
+       C-a C-d     (detach)      Detach screen from this terminal.
+
+       C-a esc     (copy)        Enter copy/scrollback mode.
+
+       C-a h       (hardcopy)    Write a hardcopy of the current window to the file "hardcopy.n".
+```
+
 ## flake8
+
+Used withing vim
