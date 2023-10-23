@@ -1,0 +1,20 @@
+defshell -bash
+# term xterm-256color
+term screen-256color
+altscreen on
+defbce on
+hardstatus alwayslastline
+hardstatus string '%{= ky}[ %{b}%H %{-}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{y}%?%+Lw%?%?%= ][%{b}%Y-%m-%d %{w}%c %{y}]'
+
+#Default screens
+#chdir /home/rkni/toast
+screen -t Web_server        0
+screen -t toast             1
+screen -t toast             2
+screen -t scripts           5
+screen -t tests             6
+screen -t tests             7
+screen -t jupyter           9
+
+chdir /home/rkni
+screen -t HOME              4
