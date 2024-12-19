@@ -3,8 +3,9 @@
 " F2   Remove trainging whitespace
 " F3   Toggle wells
 " F4   toggle paste mode
-" F5   Toggle background colour
+" F5   Undo tree
 " F6   Insert python if main block
+" F7   Toggle background color
 " F8   Autopep8
 "
 filetype off   	   "required
@@ -21,8 +22,8 @@ set relativenumber
 set t_ut= "to disable Background Color Erase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
-set undofile
+" set undodir=~/.vim/undodir
+" set undofile
 
 set spelllang=en
 set spellfile=$HOME/.vim/spell/en.utf-8.add
@@ -95,18 +96,11 @@ nnoremap <F4> :set paste!<CR>
 inoremap <F4> <esc>:set paste!<CR>i
 nnoremap <F5> :UndotreeToggle<CR>
 nnoremap <F6> :call IfMain()<CR>
-map <Esc>OP <F1>
-map <Esc>OQ <F2>
-map <Esc>OR <F3>
-map <Esc>OS <F4>
-
 call togglebg#map("<F7>")
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 imap <C-BS> <C-W> " Map Ctrl-Backspace to delete the previous word in insert mode.
-noremap! <C-BS> <C-w>
-noremap! <C-h> <C-w>
 
 " Configure Autopep8
 let g:autopep8_max_line_length=160
