@@ -1,13 +1,12 @@
 "Create custom mappings:
 " F1   None
-" F2   Remove trainging whitespace
 " F3   Toggle wells
 " F4   toggle paste mode
 " F5   Undo tree
 " F6   Insert python if main block
 " F7   Toggle background color
-" F8   Autopep8
-"
+" F8   Ruff fix
+
 filetype off   	   "required
 filetype plugin indent on    " required
 set background=dark
@@ -40,9 +39,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline' " currently causing issues on vim 7.2 at work
 Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline theme can be used
-Plugin 'tpope/vim-fugitive' " provides the git integration on the powerline
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mbbill/undotree'
+" Plugin 'mbbill/undotree'
 Plugin 'frazrepo/vim-rainbow'
 
 "Colors!!!
@@ -50,9 +48,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized' " The colorscheme for work hence included
 
 "python sytax checker
-Plugin 'vim-syntastic/syntastic'
-"Plugin 'w0rp/ale' " reuires vim 8, only 7 at work
-Plugin 'tell-k/vim-autopep8'
+Plugin 'dense-analysis/ale'
 
 "Text Objects
 Plugin 'kana/vim-textobj-user'
@@ -60,14 +56,12 @@ Plugin 'kana/vim-textobj-indent'
 Plugin 'kana/vim-textobj-line'
 Plugin 'bps/vim-textobj-python'
 
+"rust
+Plugin 'rust-lang/rust.vim'
+
 call vundle#end()
 
 colorscheme gruvbox
-
-function! TrimWhiteSpace() "Removes trailing spaces
-  %s/\s*$//
-  ''
-endfunction
 
 function! IfMain()
   let s:line=line(".")
@@ -80,40 +74,41 @@ function! ToggleWells()
     if g:wells_on
 	set norelativenumber
         set nonumber
-        SyntasticReset
+	ALEDisable
+	let g:ale_virtualtext_cursor = 0
         let g:wells_on = 0
     else
         set number
         set relativenumber
-        SyntasticCheck
+	ALEEnable
+	let g:ale_virtualtext_cursor = 1
         let g:wells_on = 1
     endif
 endfunction
 
-nnoremap <F2> :call TrimWhiteSpace()<CR>
 nnoremap <F3> :call ToggleWells() <CR>
 nnoremap <F4> :set paste!<CR>
 inoremap <F4> <esc>:set paste!<CR>i
 nnoremap <F5> :UndotreeToggle<CR>
 nnoremap <F6> :call IfMain()<CR>
 call togglebg#map("<F7>")
-autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+nnoremap <F8> :ALEFix<CR>
 
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 imap <C-BS> <C-W> " Map Ctrl-Backspace to delete the previous word in insert mode.
 
-" Configure Autopep8
-let g:autopep8_max_line_length=160
-let g:autopep8_disable_show_diff=1
+" Configure Ale
+let g:ale_linters = {'python': ['ruff'] }
+let g:ale_linters_explicit = 1
 
-" Configure Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_post_args="--max-line-length=300"
+" Fixers
+let g:ale_fixers = { 'python': ['ruff', 'ruff_format'] }
+let g:ale_python_ruff_options = '--config ~/dotfiles/ruff.toml'
+let g:airline#extensions#ale#enabled = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" Configure Vim-rainbow
+" Configure Vim-rainbow bracket highlighting
 let g:rainbow_active = 1
 let g:rainbow_ctermfgs = ['red', 'lightblue', 'yellow', 'lightgreen', 'magenta']
 
