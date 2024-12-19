@@ -42,6 +42,7 @@ Plugin 'vim-airline/vim-airline-themes' " included so the solarized airline them
 Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'mbbill/undotree'
 Plugin 'frazrepo/vim-rainbow'
+Plugin 'puremourning/vimspector'
 
 "Colors!!!
 Plugin 'morhetz/gruvbox'

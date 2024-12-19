@@ -81,7 +81,7 @@ gcG # comment to end of file
 ## Taking to work
 from the ~ dircetory, needs to be from here, run 
 
-`tar -zcvf vim-config.tar.gz .vimrc .vim`
+`tar -zcvf vim-config.tar.gz .vim dotfiles`
 
 extarct with
 
